@@ -54,7 +54,7 @@ defmodule PasetoPlug do
   defp get_auth_token(%Plug.Conn{} = conn) do
     case get_req_header(conn, "authorization") do
       ["Bearer " <> token] ->
-        {:ok, "v2.local" <> String.trim(token)}
+        {:ok, "v2.local." <> String.trim(token)}
 
       _error ->
         {:error, "Invalid Authorization Header. Expected `Authorization: Bearer <token>`"}
